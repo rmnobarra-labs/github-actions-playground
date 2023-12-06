@@ -1,0 +1,1 @@
+This plugin uses StackSpot's capability to generate code to automatically generate the necessary GitHub Action under <code>.github/workflow</code> inside your application root directory. By doing that, once you initialize your application using StackSpot, with this plugin, you'll be able to dafely deploy an application using Customer Growth's standards. 

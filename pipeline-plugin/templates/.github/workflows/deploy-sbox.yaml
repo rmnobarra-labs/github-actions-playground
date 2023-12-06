@@ -1,0 +1,20 @@
+name: Deploy in CS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    uses: stackspot-product-growth/growth-workflows/.github/workflows/runtime-v1-microservice-deploy.yaml@{{ inputs.branch_base }}
+    with:
+      aws-ecr-repository-name: "{{ inputs.app_name }}-ecr"
+      {% if not inputs.dockerfile_check %}
+      dockerfile-path: "{{ inputs.dockerfile_path }}"
+      {% endif %}
+      workspace-slug: "{{ inputs.workspace_slug }}"
+      stkspot-enviroment: "{{ inputs.stkspot_env }}"
+      runner: "{{ inputs.runner }}"
+{% raw %}      version: "${{ github.sha }}"
+{% endraw %}
+    secrets: inherit

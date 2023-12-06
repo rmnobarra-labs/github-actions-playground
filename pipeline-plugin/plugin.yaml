@@ -1,0 +1,55 @@
+schema-version: v2
+kind: plugin
+metadata:
+  name: growth-pipeline
+  display-name: Growth Pipeline Creator
+  description: Create a GitHub Action do deploy an application using Customer Growth's standards.
+  version: 0.0.3
+  picture: plugin.png
+spec:
+  type: app
+  compatibility:
+    - python
+  about: docs/about.md
+  implementation: docs/implementation.md
+  release-notes: docs/release-notes-0.0.1.md
+  requirements: docs/requirements.md
+  repository: https://github.com/stack-spot/growth-demo-plugins
+  technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
+    - Api
+  inputs:
+  - label: App Name
+    type: text
+    name: app_name
+    required: true
+  - label: Stackspot enviroment
+    type: text
+    name: stkspot_env
+    required: true
+  - label: Stackspot workspace slug
+    type: text
+    name: workspace_slug
+    required: true
+  - label: Runner
+    type: text
+    name: runner
+    required: true  
+  - label: Branch Base
+    type: text
+    name: branch_base
+    required: true        
+  - label: Is your Dockerfile in the root of the repository?
+    type: bool
+    name: dockerfile_check
+    help: Represents whether the Dockerfile is in the root of the repository or not.
+    required: true
+  - label: Dockerfile folder path
+    type: text
+    name: dockerfile_path
+    default: ""
+    help: "Inform the path to Dockerfile folder (e.g: iac)."
+    required: false
+    condition:
+      variable: dockerfile_check
+      operator: "=="
+      value: false

@@ -1,0 +1,1 @@
+The **growth-pipeline-plugin** contains all the necessary steps to properly deploy an application according to StackSpot's Customer Growth standards. By using this plugin you'll be safely deploying your application by following all of the security guardrails implemented by the team. 
