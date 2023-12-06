@@ -6,7 +6,7 @@ on:
       text:
         description: 'Text to print'
         required: true
-        default: '[{"sourceType": "gitHttps","path": "github.com/itau-corp","private": true,"app": "${{ env.APP_ID }}","token": "${{ env.GH_TOKEN }}"},{"sourceType": "terraformRegistry","path": "hashicorp","private": false}]'
+        default: '[{"sourceType": "gitHttps","path": "github.com/macaco","private": true,"app": "monkey","token": "ape"},{"sourceType": "terraformRegistry","path": "hashicorp","private": false}]'
 
 jobs:
   print_text:
