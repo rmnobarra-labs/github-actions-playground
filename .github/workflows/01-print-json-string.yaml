@@ -1,0 +1,22 @@
+name: Print Text Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      text:
+        description: 'Text to print'
+        required: true
+        default: '[{"sourceType": "gitHttps","path": "github.com/itau-corp","private": true,"app": "${{ env.APP_ID }}","token": "${{ env.GH_TOKEN }}"},{"sourceType": "terraformRegistry","path": "hashicorp","private": false}]'
+
+jobs:
+  print_text:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Print Text
+        uses: docker://rmnobarra/print-text
+        with:
+          text: ${{ github.event.inputs.text }}
